@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>李奇凯 · 个人网站 | 工程项目管理专家</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@300;400;500;600&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0F0E0C;
+    --bg-alt: #14120E;
+    --bg-deep: #0B0A08;
+    --cream: #F4F0E8;
+    --gold: #E8C268;
+    --gold-2: #C2A24E;
+    --gold-deep: #B07A2E;
+    --ink: #1A1A1A;
+    --t1: #EDE9E0;
+    --t2: #C9C3B8;
+    --t3: #9C968A;
+    --t4: #CFC9BC;
+    --td2: #6E685C;
+    --td3: #8A8478;
+    --td4: #B0A99C;
+    --td5: #6B665C;
+    --serif: "Noto Serif SC", "Source Han Serif CN", serif;
+    --sans: "Noto Sans SC", "Source Han Sans CN", sans-serif;
+    --mono: "Source Code Pro", ui-monospace, monospace;
+    --maxw: 1240px;
+    --pad: 80px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--t1);
+    font-family: var(--sans);
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  .container { max-width: var(--maxw); margin: 0 auto; padding: 0 var(--pad); }
+  .mono { font-family: var(--mono); letter-spacing: 2px; text-transform: uppercase; }
+  .gold { color: var(--gold); }
+
+  /* ---------- NAV ---------- */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    height: 78px;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 var(--pad);
+    background: rgba(15,14,12,0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(232,194,104,0.16);
+  }
+  .nav-brand { display: flex; align-items: baseline; gap: 14px; }
+  .nav-brand .name { font-family: var(--serif); font-weight: 700; font-size: 23px; color: var(--t1); letter-spacing: 1px; }
+  .nav-brand .tag { font-family: var(--mono); font-size: 10.5px; color: var(--t3); letter-spacing: 2.5px; }
+  .nav-links { display: flex; gap: 38px; align-items: center; }
+  .nav-links a { font-size: 15px; color: var(--t2); transition: color .25s ease; position: relative; }
+  .nav-links a::after {
+    content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 1px;
+    background: var(--gold); transition: width .25s ease;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 860px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 72px;
+    padding: 168px var(--pad) 104px;
+    background:
+      radial-gradient(120% 80% at 85% 0%, rgba(232,194,104,0.08), transparent 55%),
+      var(--bg);
+    position: relative;
+  }
+  .hero-left { max-width: 660px; }
+  .hero-kicker {
+    font-family: var(--mono); font-size: 12.5px; color: var(--gold);
+    letter-spacing: 3.5px; margin-bottom: 30px;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .hero-kicker::before { content: ""; width: 34px; height: 1px; background: var(--gold); display: inline-block; opacity: .7; }
+  .hero-title {
+    font-family: var(--serif); font-weight: 700; font-size: 70px;
+    line-height: 1.14; color: var(--t1); margin-bottom: 30px; letter-spacing: 1px;
+  }
+  .hero-sub { font-size: 18px; color: var(--t3); line-height: 1.85; max-width: 540px; margin-bottom: 40px; font-weight: 300; }
+  .hero-ctas { display: flex; gap: 16px; margin-bottom: 52px; }
+  .btn-primary {
+    font-family: var(--sans); font-weight: 600; font-size: 15.5px;
+    background: var(--gold); color: var(--bg);
+    padding: 15px 34px; border-radius: 2px; border: none; cursor: pointer;
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 32px rgba(232,194,104,0.28); }
+  .btn-ghost {
+    font-family: var(--sans); font-size: 15.5px; color: var(--gold);
+    padding: 15px 34px; border-radius: 2px;
+    border: 1px solid rgba(232,194,104,0.5); background: transparent; cursor: pointer;
+    transition: background .2s ease;
+  }
+  .btn-ghost:hover { background: rgba(232,194,104,0.08); }
+  .hero-metrics { display: flex; gap: 52px; }
+  .hero-metrics .n { font-family: var(--serif); font-weight: 600; font-size: 30px; color: var(--gold); line-height: 1; }
+  .hero-metrics .l { font-family: var(--mono); font-size: 11.5px; color: var(--t3); letter-spacing: 1.5px; margin-top: 10px; }
+  .hero-visual { width: 520px; flex-shrink: 0; }
+  .hero-frame {
+    width: 520px; height: 600px; border-radius: 4px;
+    border: 1px solid rgba(232,194,104,0.4);
+    background-image: url("assets/real_hero.jpg");
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    position: relative; overflow: hidden;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.45);
+  }
+  .hero-frame::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 55%, rgba(15,14,12,0.55) 100%);
+  }
+  .hero-cap {
+    font-family: var(--mono); font-size: 11.5px; color: var(--t3); letter-spacing: 1.5px;
+    margin-top: 16px; text-align: right;
+  }
+
+  /* ---------- SECTION SHELL ---------- */
+  section { padding: 116px 0; }
+  .sec-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 60px; }
+  .sec-head .k { font-family: var(--mono); font-size: 14px; color: var(--gold); letter-spacing: 2.5px; }
+  .sec-head .t { font-family: var(--mono); font-size: 13px; color: var(--td5); letter-spacing: 4px; }
+
+  /* ---------- ABOUT ---------- */
+  .about { background: var(--cream); color: var(--ink); }
+  .about .sec-head .k { color: var(--gold-deep); }
+  .about .sec-head .t { color: var(--td4); }
+  .about-statement {
+    font-family: var(--serif); font-weight: 700; font-size: 44px; line-height: 1.4; color: var(--ink);
+    margin-bottom: 36px; max-width: 880px; letter-spacing: 0.5px;
+  }
+  .about-body { font-size: 17.5px; color: var(--td2); line-height: 1.95; max-width: 740px; margin-bottom: 60px; font-weight: 300; }
+  .about-rule { height: 1px; background: rgba(176,122,46,0.22); margin-bottom: 56px; max-width: 740px; }
+  .about-stats { display: flex; gap: 76px; flex-wrap: wrap; }
+  .about-stats .n { font-family: var(--serif); font-weight: 600; font-size: 46px; color: var(--gold-deep); line-height: 1; }
+  .about-stats .l { font-family: var(--mono); font-size: 12.5px; color: var(--td3); letter-spacing: 1.5px; margin-top: 12px; }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp { background: var(--bg); }
+  .exp .sec-head .t { color: var(--td5); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: ""; position: absolute; left: 9px; top: 48px; bottom: 48px; width: 1px;
+    background: linear-gradient(var(--gold), rgba(232,194,104,0.06));
+  }
+  .entry {
+    position: relative; display: flex; gap: 56px; padding: 42px 0 42px 44px;
+    border-top: 1px solid rgba(232,194,104,0.10);
+  }
+  .entry:last-child { border-bottom: 1px solid rgba(232,194,104,0.10); }
+  .entry::before {
+    content: ""; position: absolute; left: 5px; top: 54px;
+    width: 9px; height: 9px; background: var(--gold); transform: rotate(45deg);
+    box-shadow: 0 0 0 4px rgba(232,194,104,0.12);
+  }
+  .entry .year { font-family: var(--mono); font-size: 17px; color: var(--gold); letter-spacing: 1px; width: 200px; flex-shrink: 0; padding-top: 4px; }
+  .entry .role { flex: 1; }
+  .entry .company { font-family: var(--serif); font-weight: 700; font-size: 25px; color: var(--t1); letter-spacing: 0.5px; }
+  .entry .meta { font-size: 14.5px; color: var(--gold-2); margin: 11px 0; letter-spacing: 0.3px; }
+  .entry .desc { font-size: 15px; color: var(--t3); line-height: 1.8; max-width: 760px; font-weight: 300; }
+
+  /* ---------- PROJECTS ---------- */
+  .projects { background: var(--bg-alt); }
+  .projects .sec-head .t { color: var(--td5); }
+  .proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(232,194,104,0.18);
+    border-radius: 6px; padding: 24px;
+    display: flex; flex-direction: column; gap: 16px;
+    transition: transform .3s ease, border-color .3s ease, background .3s ease;
+  }
+  .card:hover { transform: translateY(-8px); border-color: rgba(232,194,104,0.5); background: rgba(255,255,255,0.06); }
+  .card-img {
+    width: 100%; height: 196px; border-radius: 4px;
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    position: relative; overflow: hidden;
+  }
+  .card-img::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(11,10,8,0.4) 100%);
+  }
+  .card-title { font-family: var(--serif); font-weight: 700; font-size: 21px; color: var(--t1); letter-spacing: 0.5px; }
+  .card-type { font-family: var(--mono); font-size: 11.5px; color: var(--t3); letter-spacing: 1px; }
+  .card-metric { display: flex; align-items: baseline; gap: 10px; margin-top: 2px; }
+  .card-metric .big { font-family: var(--serif); font-weight: 600; font-size: 38px; color: var(--gold); line-height: 1; }
+  .card-metric .lab { font-size: 13px; color: var(--gold-2); }
+  .card-desc { font-size: 14px; color: var(--t3); line-height: 1.75; font-weight: 300; }
+
+  /* ---------- HONORS ---------- */
+  .honors { background: var(--bg); }
+  .honors .sec-head .t { color: var(--td5); }
+  .honors-cols { display: flex; gap: 80px; }
+  .honors-cols > div { flex: 1; }
+  .col-h {
+    font-family: var(--serif); font-weight: 600; font-size: 19px; color: var(--gold);
+    margin-bottom: 26px; padding-bottom: 14px; border-bottom: 1px solid rgba(232,194,104,0.16);
+    letter-spacing: 0.5px;
+  }
+  .honor-item { display: flex; align-items: center; gap: 14px; padding: 11px 0; }
+  .dot { width: 7px; height: 7px; background: var(--gold); flex-shrink: 0; transform: rotate(45deg); }
+  .honor-item span { font-size: 15.5px; color: var(--t4); font-weight: 300; }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: var(--bg-deep); padding: 108px 0 46px; }
+  footer .sec-head .t { color: var(--td5); }
+  .f-statement { font-family: var(--serif); font-weight: 700; font-size: 52px; line-height: 1.3; color: var(--t1); margin-bottom: 52px; letter-spacing: 1px; }
+  .f-contacts { display: flex; gap: 64px; margin-bottom: 52px; flex-wrap: wrap; }
+  .f-contacts > div { display: flex; flex-direction: column; gap: 8px; }
+  .f-contacts .l { font-family: var(--mono); font-size: 11.5px; color: var(--td5); letter-spacing: 1.5px; }
+  .f-contacts .v { font-size: 18px; color: var(--t1); }
+  .f-rule { height: 1px; background: rgba(232,194,104,0.18); margin-bottom: 24px; }
+  .f-bottom { display: flex; justify-content: space-between; align-items: center; }
+  .f-bottom span { font-family: var(--mono); font-size: 12.5px; color: var(--td5); letter-spacing: 1.5px; }
+
+  /* ---------- REVEAL ---------- */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (max-width: 1100px) {
+    :root { --pad: 40px; }
+    .hero { flex-direction: column; align-items: flex-start; min-height: auto; gap: 48px; }
+    .hero-visual, .hero-frame { width: 100%; max-width: 520px; }
+    .hero-title { font-size: 52px; }
+    .proj-grid { grid-template-columns: 1fr; }
+    .honors-cols { flex-direction: column; gap: 48px; }
+    .about-stats { gap: 44px; }
+    .about-statement { font-size: 34px; }
+    .f-statement { font-size: 38px; }
+    .entry { flex-direction: column; gap: 16px; }
+    .entry .year { width: auto; }
+    .timeline::before { display: none; }
+    .entry::before { display: none; }
+    .entry { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-brand">
+      <span class="name">李奇凯</span>
+      <span class="tag">LI QIKAI · PORTFOLIO</span>
+    </div>
+    <div class="nav-links">
+      <a href="#about">关于</a>
+      <a href="#exp">职业历程</a>
+      <a href="#projects">代表项目</a>
+      <a href="#honors">荣誉</a>
+      <a href="#contact">联系</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-left">
+      <div class="hero-kicker">PROJECT DIRECTOR · 工程项目管理专家</div>
+      <h1 class="hero-title">二十年工程匠心<br />筑就品质人居</h1>
+      <p class="hero-sub">资深项目总监，覆盖中高端住宅、星级酒店、商业办公等全业态，精通项目全生命周期管控与经营。</p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="document.getElementById('exp').scrollIntoView()">查看职业历程</button>
+        <a class="btn-ghost" href="#" download>下载简历</a>
+      </div>
+      <div class="hero-metrics">
+        <div><div class="n">近 20 年</div><div class="l">行业深耕</div></div>
+        <div><div class="n">5 家</div><div class="l">头部房企履历</div></div>
+        <div><div class="n">97%</div><div class="l">项目去化率</div></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-frame"></div>
+      <div class="hero-cap">合景·寰汇 / 商办项目</div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="k">01 — 关于我</div>
+        <div class="t">PROFILE</div>
+      </div>
+      <h2 class="about-statement reveal">从一线工程师到项目总监，<br />二十年只做一件事：<br />把复杂的工程，交付成可信赖的品质。</h2>
+      <p class="about-body reveal">深耕建筑与房地产行业近二十年，管理过中高端住宅、星级酒店、商业办公等多业态完整项目。精通项目全生命周期管控、报批报建与竣工验收全流程，具备强经营意识与风险管控能力。持有二级建造师（建筑／市政）执业资格，高级工程师职称在评。</p>
+      <div class="about-rule reveal"></div>
+      <div class="about-stats reveal">
+        <div><div class="n">20 年</div><div class="l">行业深耕</div></div>
+        <div><div class="n">13 人</div><div class="l">直接管理团队</div></div>
+        <div><div class="n">4 类</div><div class="l">项目业态</div></div>
+        <div><div class="n">2 证</div><div class="l">建造师资格</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="exp" class="exp">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="k">02 — 职业历程</div>
+        <div class="t">EXPERIENCE</div>
+      </div>
+      <div class="timeline">
+        <div class="entry reveal">
+          <div class="year">2020 — 至今</div>
+          <div class="role">
+            <div class="company">合景泰富集团</div>
+            <div class="meta">项目总监 · 运营部 · 汇报城市副总 · 下属 13 人</div>
+            <div class="desc">负责项目全过程管理，统筹内外资源达成集团经营指标，涵盖筹划、设计、报建、成本、工程与交付全链条。</div>
+          </div>
+        </div>
+        <div class="entry reveal">
+          <div class="year">2016 — 2020</div>
+          <div class="role">
+            <div class="company">旭辉集团</div>
+            <div class="meta">工程经理 · 项目部 · 汇报片区总经理 · 下属 5 人</div>
+            <div class="desc">主持项目部日常管理，统筹全项目全生命周期工程管理，对进度、质量、成本、安全全面负责。</div>
+          </div>
+        </div>
+        <div class="entry reveal">
+          <div class="year">2012 — 2016</div>
+          <div class="role">
+            <div class="company">金科地产</div>
+            <div class="meta">项目负责人 · 项目部 · 汇报工程总监 · 下属 5 人</div>
+            <div class="desc">负责施工过程质量、进度、成本与安全文明管理，建立监理与施工单位考核机制并落地执行。</div>
+          </div>
+        </div>
+        <div class="entry reveal">
+          <div class="year">2010 — 2012</div>
+          <div class="role">
+            <div class="company">中南控股集团</div>
+            <div class="meta">工程主管 · 项目部 · 汇报工程经理 · 下属 5 人</div>
+            <div class="desc">参与技术方案与施工图纸评审、设计变更及现场签证审核，组织重大施工技术交底。</div>
+          </div>
+        </div>
+        <div class="entry reveal">
+          <div class="year">2006 — 2010</div>
+          <div class="role">
+            <div class="company">江苏恒达城建</div>
+            <div class="meta">总工办工程师 · 总工办 · 汇报总工</div>
+            <div class="desc">负责吴江奥林清华项目现场管理，协助总工进行工程报建、单位协调与施工图纸审核、变更管理。</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="projects">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="k">03 — 代表项目</div>
+        <div class="t">SELECTED WORK</div>
+      </div>
+      <div class="proj-grid">
+        <div class="card reveal">
+          <div class="card-img" style="background-image:url('assets/real_card1.jpg')"></div>
+          <div class="card-title">合景泰富·寰汇</div>
+          <div class="card-type">商办项目 · 建面约 4 万方 · 总高 21 层</div>
+          <div class="card-metric"><div class="big">97%</div><div class="lab">交付去化率</div></div>
+          <div class="card-desc">按时完成毛坯竣工备案与精装改造，参与华东区域工程管理制度建设与工程文化落地。</div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img" style="background-image:url('assets/real_card2.jpg')"></div>
+          <div class="card-title">旭辉·香格里</div>
+          <div class="card-type">精装高层＋洋房 · 建面约 18 万方</div>
+          <div class="card-metric"><div class="big">88.27</div><div class="lab">集团交付点评第一</div></div>
+          <div class="card-desc">获集团交付大奖、优秀项目团队，集团飞检排名全国第 2，交付点评得分 88.27。</div>
+        </div>
+        <div class="card reveal">
+          <div class="card-img" style="background-image:url('assets/real_card3.jpg')"></div>
+          <div class="card-title">旭辉·甪直和庭</div>
+          <div class="card-type">中端改善 · 现房销售 · 建面约 6 万方</div>
+          <div class="card-metric"><div class="big">首批</div><div class="lab">苏州现房销售</div></div>
+          <div class="card-desc">从拿地定位、方案到报批报建全流程参与，苏州首批现房销售项目。</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HONORS -->
+  <section id="honors" class="honors">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="k">04 — 荣誉与资质</div>
+        <div class="t">CREDENTIALS &amp; HONORS</div>
+      </div>
+      <div class="honors-cols">
+        <div class="reveal">
+          <div class="col-h">执业资质</div>
+          <div class="honor-item"><span class="dot"></span><span>二级建造师 · 建筑工程</span></div>
+          <div class="honor-item"><span class="dot"></span><span>二级建造师 · 市政工程</span></div>
+          <div class="honor-item"><span class="dot"></span><span>高级工程师（职称在评）</span></div>
+          <div class="honor-item"><span class="dot"></span><span>工程管理学士 · 江苏科技大学</span></div>
+        </div>
+        <div class="reveal">
+          <div class="col-h">荣誉奖项</div>
+          <div class="honor-item"><span class="dot"></span><span>恒达「优秀员工」</span></div>
+          <div class="honor-item"><span class="dot"></span><span>金科「2013 集团优秀员工」</span></div>
+          <div class="honor-item"><span class="dot"></span><span>金科「感动金科人物」</span></div>
+          <div class="honor-item"><span class="dot"></span><span>金科「2014 江苏片区优秀员工」</span></div>
+          <div class="honor-item"><span class="dot"></span><span>旭辉「优秀讲师」</span></div>
+          <div class="honor-item"><span class="dot"></span><span>旭辉「卓越项目经理」</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER / CONTACT -->
+  <footer id="contact">
+    <div class="container">
+      <div class="sec-head reveal">
+        <div class="k">05 — 联系</div>
+        <div class="t">GET IN TOUCH</div>
+      </div>
+      <h2 class="f-statement reveal">期待与您共建<br />下一个品质标杆</h2>
+      <div class="f-contacts reveal">
+        <div><div class="l">手机 TEL</div><div class="v">186 6211 2055</div></div>
+        <div><div class="l">邮箱 EMAIL</div><div class="v">liqikai521@qq.com</div></div>
+        <div><div class="l">所在地 BASED</div><div class="v">江苏 · 苏州吴江</div></div>
+      </div>
+      <div class="f-rule"></div>
+      <div class="f-bottom">
+        <span>© 2026 李奇凯 · 个人网站</span>
+        <span>DESIGNED WITH WORKBUDDY</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
