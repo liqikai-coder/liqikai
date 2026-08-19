@@ -1,0 +1,8 @@
+【提交到 GitHub liqikai 仓库的步骤】
+1. 打开你的 liqikai 仓库（https://github.com/liqikai-coder/liqikai）
+2. 把本文件夹里的 index.html 和 resume.pdf 上传/覆盖到仓库根目录
+   - index.html：已与线上最新版完全一致（含你更新的文字：项目管理专家、开工交底全流程、建面约29万方、DESIGNED BY LIQIKAI 等）
+   - resume.pdf：2026 版简历（替换旧的同名文件，下载按钮指向它）
+3. 写提交信息（如「更新简历与文案」），Commit
+4. 等待 GitHub Pages 自动部署（通常 1-2 分钟）
+说明：本地 index.html 已与 https://liqikai-coder.github.io/liqikai 当前线上内容逐字核对一致。
